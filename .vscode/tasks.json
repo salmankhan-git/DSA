@@ -1,0 +1,20 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compile and Run C++ in PowerShell with UTF8 output",
+      "type": "shell",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-Command",
+        "g++ -std=c++17 -o Runner\\basic.exe Runner\\basic.cpp; Get-Content Runner\\input.txt | .\\Runner\\basic.exe | Out-File -FilePath Runner\\output.txt -Encoding utf8"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}
