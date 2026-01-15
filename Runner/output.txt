@@ -1,1 +1,1 @@
-﻿Square is: -3
+﻿Factorial of 5 is: 120
