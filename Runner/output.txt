@@ -1,1 +1,2 @@
-﻿The first number is: 6422280 The second number is: 12
+﻿This is a parameterized function
+The name is salman

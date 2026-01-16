@@ -1,10 +1,13 @@
 #include <iostream>
 using namespace std;
-int main() {
+void parameterizedFunction(string random ){
+    cout << "This is a parameterized function" << endl;
+    cout << "The name is " << random << endl;
+}
+int main(){
 
-int a, b;
-    cin >> b>> a;
-    cout << "The first number is: " << a << " The second number is: "<< b << endl;
+    string name = "salman";
+    parameterizedFunction(name);
 
     return 0;
 }
