@@ -1,1 +1,1 @@
-﻿Factorial of 5 is: 120
+﻿The first number is: 6422280 The second number is: 12
