@@ -252,6 +252,59 @@ void pattern19(int n)
         cout << endl;
     }
 }
+void pattern20(int n) {
+    for (int i=0; i<2*n-1; i++) {
+        int stars = i<n ? i+1 : 2*n - i -1;
+        int spaces = i<n ? 2*n- 2*i -2: 2*i-2*n+2;
+        //star
+        for (int j=0; j<stars; j++) {
+            cout << "*";
+        }
+        //spaces
+        for (int j=0; j<spaces; j++) {
+            cout << " ";
+        }
+        //star
+        for (int j=0; j<stars; j++) {
+            cout << "*";
+        }   
+        cout << endl;
+    }
+}
+void pattern21(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (i == 0 || i == n - 1 || j == 0 || j == n - 1)
+            {
+                cout << "*";
+            }
+            else
+            {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+void pattern22(int n)
+{
+    for (int i = 0; i < 2*n-1; i++)
+    {
+        for (int j = 0; j < 2*n-1; j++)
+        {
+            int top = i;
+            int left = j;
+            int right = (2*n-2) - j;
+            int bottom = (2*n-2) - i;
+            int ans = min(min(top, bottom), min(left, right));
+            cout << n - ans << " ";
+        }
+        cout << endl;
+    }
+}
 int main()
 {
     int t;
@@ -278,7 +331,10 @@ int main()
         // pattern16(n);
         // pattern17(n);
         // pattern18(n);
-        pattern19(n);
+        // pattern19(n);
+        // pattern20(n);
+        // pattern21(n);
+        pattern22(n);
     }
     return 0;
 }
