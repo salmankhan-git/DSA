@@ -2,18 +2,18 @@
 using namespace std;
 int main()
 {
-    // Create a vector of integers
-    vector<int> vec;
+    void explainPair(){
+        // pair is a container that holds two values of different data types
+        pair<int, int> p = {1, 3};
+        cout << p.first << " " << p.second << endl;
 
-    // Add some elements to the vector
-    vec.push_back(10);
-    vec.push_back(20);
-    vec.push_back(30);
+        // nested pair
+        pair<int, pair<int, int>> p1 = {1, {3, 4}};
+        cout << p1.first << " " << p1.second.first << " " << p1.second.second << endl;
 
-    // Iterate through the vector and print its elements
-    for(size_t i = 0; i < vec.size(); i++) {
-        cout << "Element at index " << i << ": " << vec[i] << endl;
+        // array of pairs
+        pair<int, int> arr[] = {{1, 2}, {3, 4}, {5, 6}};
+        cout << arr[1].second << endl;
     }
-
     return 0;
 }
