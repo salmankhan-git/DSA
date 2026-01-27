@@ -42,6 +42,29 @@ void explainPair(){
         // vector<int> v4(v1); // vector copied from v1
         // {1, 2, 3, 4}
 
+
+        //iterator
+        vector<int> v1 = {1, 2, 3, 4};
+        vector<int>::iterator it = v1.begin();
+        it++;
+        cout << *(it) << endl; // prints 2
+
+        it = it + 2;
+        cout << *(it) << endl; // prints 4
+
+        // iterator to end of vector
+        vector<int>::iterator it1 = v1.end(); // points to one position after the last element
+        it1--;
+        cout << *(it1) << endl; // prints 4
+
+
+        vector<int>::iterator it1 = v1.rend(); // reverse iterator to one position before the first element
+        it1--;
+        cout << *(it1) << endl; // prints 1
+
+        vector<int>::iterator it1 = v1.rbegin(); // reverse iterator to the last element
+        cout << *(it1) << endl; // prints 4
+        
     }
 
 
