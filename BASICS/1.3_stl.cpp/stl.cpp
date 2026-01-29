@@ -627,6 +627,55 @@ void explainUnorderedMultiMap(){
 
 }
 
+void explainExtra(){
+    
+    // sort
+    
+    // for vectors
+    // sort(v.begin(), v.end()); // sorts the vector in ascending order
+    // sort(v.begin(), v.end(), greater<int>()); // sorts the vector in descending order
+    
+    // for arrays
+    // int arr[n] = {4, 2, 1, 3};
+    // sort(arr, arr + n); // sorts the array in ascending order
+    // sort(arr, arr + n, greater<int>()); // sorts the array in descending order
+    
+    // reverse
+    // reverse(v.begin(), v.end()); // reverses the vector
+    // reverse(arr, arr + n); // reverses the array
+
+    pair<int, int> a[] = { {1, 2}, {2, 1}, {4, 1} };
+    // sort it according to second element of pair
+    // if second elements are same, then sort according to first element in descending order 
+    sort(a, a + 3, comp);
+
+
+    // prints all permutations of the string in lexicographical order
+    string s="12345";
+    sort(s.begin(), s.end()); // s = "12345"
+    do{
+        cout<<s<<endl;
+    }while(next_permutation(s.begin(), s.end()));
+
+    // maximum and minimum
+    int a[5] = {1, 2, 3, 4, 5};
+    // cout << *max_element(a, a + 5) << endl; // prints the maximum element in the array
+    // cout << *min_element(a, a + 5) << endl; // prints the minimum element in the array
+
+}
+
+bool comp(pair<int, int> p1, pair<int, int> p2){
+    if(p1.second < p2.second){  
+        return true;
+    } else if(p1.second == p2.second){
+        if(p1.first > p2.first) return true;
+    }
+    return false;
+
+    //or
+    // if(p1.second == p2.second) return p1.first > p2.first;
+    // return p1.second < p2.second;
+}
 
 int main(){
     explainPair();
