@@ -7,13 +7,19 @@ int main(){
     cin>>n;
     int count=0;
     while(n>0){
+    
+        // n%10;  // extract last digit
+
+        n=n/10; // remove last digit
         count++;
-        n=n/10;
+
     }
     cout<<count<<endl;
 
-    // palindrome number
-    int num;
+    // or by log10 function
+
+    int m = log10(n) + 1;
+    cout<<m<<endl;
     
 
     return 0;
