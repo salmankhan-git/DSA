@@ -700,7 +700,29 @@ bool comp(pair<int, int> p1, pair<int, int> p2)
     // or
     //  if(p1.second == p2.second) return p1.first > p2.first;
     //  return p1.second < p2.second;
+
+    // syntax for the above line:
+    // if (condition)
+    //  return A;
+    // return B;
+
+
+    // if (condition)
+    //  return A; //here we dont need curly braces as there is only one statement
+    //  else
+    //  return B;
+
+
+    // or using ternary operator
+    // syntax for ternary operator:
+    // return (condition) ? value_if_true : value_if_false;
+    // return (p1.second == p2.second) ? (p1.first > p2.first) : (p1.second < p2.second);
+    // the braces are optional here we can also write without braces
+    // return (p1.second == p2.second) ? p1.first > p2.first : p1.second < p2.second;
+
+
 }
+
 
 int main()
 {
