@@ -18,21 +18,24 @@ int reve(int i, int n, int arr[]){
     reve(i + 1, n, arr);
 }
  //checking palindrome using recursion
-bool isPalindrome(string s, int i, int j) {
-    if (i >= j)
-        return true;
-    if (s[i] != s[j])
-        return false;
-    return isPalindrome(s, i + 1, j - 1);
+bool isPalindrome(string s, int i, int sn) {
+        if (i >= sn / 2)
+            return true;
+        if (s[i] != s[sn - i - 1])
+            return false;
+        return isPalindrome(s, i + 1, sn);
 }
 
 
 int main() {
 
     int arr[] = {1, 2, 3, 4, 5};
+    string s = "madam";
     int n = std::size(arr);// or int n = sizeof(arr) / sizeof(arr[0]);
+    int sn = s.length();
     rev(arr, 0, n-1);
     reve(0, n, arr);
+    isPalindrome(s, 0, sn);
     return 0;
 }
 
