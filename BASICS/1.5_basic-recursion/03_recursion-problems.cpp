@@ -31,7 +31,7 @@ int main() {
 
     int arr[] = {1, 2, 3, 4, 5};
     string s = "madam";
-    int n = std::size(arr);// or int n = sizeof(arr) / sizeof(arr[0]);
+    int n = sizeof(arr) / sizeof(arr[0]);  //or  int n = std::size(arr); 
     int sn = s.length();
     rev(arr, 0, n-1);
     reve(0, n, arr);
