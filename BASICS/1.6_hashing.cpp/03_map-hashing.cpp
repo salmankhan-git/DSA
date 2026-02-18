@@ -13,7 +13,7 @@ int main(){
     int n;
     cin >> n;
     int arr[n];
-    map<int, int> mp; // map to store the frequency of elements in the array.
+    unordered_map<int, int> mp; // map to store the frequency of elements in the array.
     // for string, we can use map<string, int> mp;
 
     for(int i = 0; i < n; i++){
@@ -38,3 +38,11 @@ int main(){
     return 0;
 
 }
+
+
+//** in map we can have any data type as key and value( pairs), but in unordered_map we can have any data type as key but value must be of same type and key cannot be pairs.
+// map<int, pair<int, int>> mp; // valid
+// unordered_map<int, pair<int, int>> mp; // invalid
+
+// ** in map we can have multiple keys with same value but in unordered_map we cannot have multiple keys with same value.
+ 
