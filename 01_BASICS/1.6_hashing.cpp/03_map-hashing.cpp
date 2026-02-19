@@ -46,3 +46,6 @@ int main(){
 
 // ** in map we can have multiple keys with same value but in unordered_map we cannot have multiple keys with same value.
  
+//** the worst case time complexity of unordered_map is O(n) when there are many hash collisions
+// collisions occur when different keys hash to the same bucket, leading to a longer search time for that bucket. In such cases, the performance of unordered_map can degrade to O(n) for insertion, deletion, and search operations.
+// linear search is used to resolve collisions in unordered_map, which can lead to O(n) time complexity in the worst case.
