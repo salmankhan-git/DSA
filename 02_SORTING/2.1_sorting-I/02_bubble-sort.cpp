@@ -55,6 +55,9 @@ for(int i=0;i<n;i++) cin>>arr[i];
 //bubble sort
 bubble_sort(arr,n);
 
+// print sorted array
+for(int i=0;i<n;i++) cout<<arr[i]<<" ";
+
 return 0;
 
 }
