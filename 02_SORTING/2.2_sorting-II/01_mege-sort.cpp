@@ -64,4 +64,9 @@ int main(){
     for(int i = 0; i < n; i++)
         cout << arr[i] << " ";
     return 0;
+
+
+
+    //time complexity: O(n log n) in all cases (best, average, worst) because we are dividing the array into two halves and merging them back together, and the merging process takes O(n) time and we are doing this log n times because we are dividing the array into two halves log n times.
+    // space complexity: O(n) because we are using a temporary vector to store the merged array, and the size of the temporary vector is equal to the size of the original array.
 }
