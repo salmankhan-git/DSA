@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 void quickSort(vector<int> &arr, int low, int high){
-    if(low < high){
+    if(low < high){ //if their is a single element then only low = high
         int pivot = partition(arr, low, high);
         quickSort(arr, low, pivot-1);
         quickSort(arr, pivot+1, high);
