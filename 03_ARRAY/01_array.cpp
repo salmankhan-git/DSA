@@ -7,8 +7,11 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
+
+    // finding largest element in an array
+
+    // brute force approach
+    sort(arr, arr + n);
+
     return 0;
 }
