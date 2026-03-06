@@ -63,4 +63,6 @@ int main() {
     cout << second_largest << endl; //time complexity: O(n)
 
     return 0;
+
+    //Q3. finding the sum of all elements in an array
 }
