@@ -64,5 +64,5 @@ int main() {
 
     return 0;
 
-    //Q3. finding the sum of all elements in an array
+    //Q3. finding the sum of all elements in an array and array of prefix sum
 }
