@@ -64,5 +64,18 @@ int main() {
 
     return 0;
 
-    //Q3. finding the sum of all elements in an array and array of prefix sum
+    //Q3. To check if an array is sorted or not
+
+    for (int i = 1 ;i < n ; i++) {
+        if (arr[i] >= arr[i - 1]) {
+            }
+        else{
+            cout << "not sorted array" << endl;
+            break;
+        }
+
+        }
+        cout << "sorted array" << endl;
+
+
 }
