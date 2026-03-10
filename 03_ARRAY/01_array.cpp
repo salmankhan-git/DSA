@@ -66,16 +66,37 @@ int main() {
 
     //Q3. To check if an array is sorted or not
 
-    for (int i = 1 ;i < n ; i++) {
-        if (arr[i] >= arr[i - 1]) {
-            }
-        else{
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i] >= arr[i - 1])
+        {
+        }
+        else
+        {
             cout << "not sorted array" << endl;
             break;
         }
+    }
+    cout << "sorted array" << endl;
 
-        }
-        cout << "sorted array" << endl;
 
+    //Q4. To remove duplicates in-place from sorted array
 
+    //brute force approach
+    
+    //by using set which will store only unique elements
+    //time complexity: O(nlogn) for inserting elements in set + O(n) for copying elements back to array, overall time complexity: O(nlogn)
+    //space complexity: O(n) for set
+
+    set<int> s;
+    for (int i = 0; i < n; i++)
+    {
+        s.insert(arr[i]);
+    }
+    //now we have unique elements in set s, we will copy those elements back to array arr
+    int index = 0;
+    for (auto it : s)
+    {
+        arr[index++] = it;
+    }
 }
