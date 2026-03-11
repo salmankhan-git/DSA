@@ -99,4 +99,31 @@ int main() {
     {
         arr[index++] = it;
     }
+ 
+    //optimal approach
+    //since the array is sorted, we can use two pointers to remove duplicates in-place
+    //time complexity: O(n) as we traverse the array once and space complexity: O(1) as we are not using any extra space
+
+    int index = 1; //index to store the position of next unique element as the first element is always unique
+
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i] != arr[i - 1]) // if current element is not equal to previous element, then it is a unique element and we will store it at index position and increment index 
+        {
+             arr[index++] = arr[i];
+        }
+    }
+
+    //another way of writing this same logic can be
+    int i=0;
+    for (int j = 1; j < n; j++)
+    {
+        if (arr[j] != arr[i]) // if current element is not equal to the last unique element, then it is a unique element and we will store it next to the last unique element and increment i
+        {
+             arr[++i] = arr[j]; // we will increment i first and then store the unique element at index i
+             // if we write arr[i++] = arr[j], then we will store the unique element at index i and then increment i, which will remove the unique element which is at i and replace it with the next unique element which is at j, so we will end up with 
+        }
+    }
+
+     return 0;
 }
