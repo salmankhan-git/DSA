@@ -9,7 +9,7 @@ int main(){
     }
 
     //Q1. Left rotate an array by d positions
-
+    // resultant array after left rotation by d positions
 
     return 0;
 }
