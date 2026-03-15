@@ -12,6 +12,7 @@ int main(){
     // resultant array after left rotation by d positions
     // 1. d = 2, arr[] = {1, 2, 3, 4, 5} => {3, 4, 5, 1, 2}
     // 2. d = 3, arr[] = {1, 2, 3, 4, 5} => {4, 5, 1, 2, 3}
+    // 3. d = 4, arr[] = {1, 2, 3, 4, 5} => {5, 1, 2, 3, 4}
 
     return 0;
 }
