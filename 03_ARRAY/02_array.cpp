@@ -118,6 +118,10 @@ int main(){
 
         // time complexity = O(n)+O(d)+O(n-d) = O(n)
         // space complexity = O(1)
+
+
+        // Q3. Move all the zeroes to the end of the array
+
         
     return 0;
 
