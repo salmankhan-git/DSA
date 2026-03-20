@@ -121,6 +121,55 @@ int main(){
 
 
         // Q3. Move all the zeroes to the end of the array
+        
+        // brute force approach (using temporary array )
+        vector<int> temp;
+        for (int i=0; i<n; i++){
+            if(arr[i] != 0){
+                temp.push_back(arr[i]);
+            }
+        }
+        // filling the temporary array back to the original array
+        for (int i=0; i<temp.size(); i++){
+            arr[i] = temp[i];
+        }
+        // filling the zeroes at the end of the original array
+        for (int i=temp.size(); i<n; i++){
+            arr[i] = 0;
+        }
+
+        //time complexity = O(n) + O(temp.size()) + O(n-temp.size()) = O(2n)
+        // space complexity = O(temp.size())= O(n)
+        
+
+        // optimal approach (using two pointers)
+
+        // finding the first zero in the array
+        int j = -1;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == 0) {
+                j = i;
+                break;
+            }
+        }
+
+        // if no zero is found, the array is already optimal
+        // if (j == -1) {
+            // return 0;
+        // }
+
+        // move all non-zero elements to the left of the first zero
+        for (int i = j + 1; i < n; i++) {
+            if (arr[i] != 0) {
+                swap(arr[i], arr[j]);
+                j++;
+            }
+        }
+        // time complexity = O(x)+O(n-x) = O(n)
+        // space complexity = O(1)
+
+
+        // Q4. Find union and intersection of sorted arrays
 
         
     return 0;
