@@ -169,8 +169,12 @@ int main(){
         // space complexity = O(1)
 
 
-        // Q4. Find union and intersection of sorted arrays
+        // Q4. Find union of sorted arrays
 
+        int arr1[5] = {1, 1, 3, 5, 6};
+        int arr2[5] = {2, 2, 3, 4, 5};
+        
+        
         
     return 0;
 
