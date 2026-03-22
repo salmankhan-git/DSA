@@ -173,8 +173,10 @@ int main(){
 
         int arr1[5] = {1, 1, 3, 5, 6};
         int arr2[5] = {2, 2, 3, 4, 5};
+
+        // Brute force 
         
-        
+
         
     return 0;
 
