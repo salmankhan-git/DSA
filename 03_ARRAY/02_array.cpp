@@ -247,10 +247,46 @@ int main(){
 
         // time complexity = O(n1 + n2)
         // space complexity = O(n1 + n2)
-        
+
         // Q4(b). Find intersection of sorted arrays
+        
+        //brute force by using an visited array
+        vector<int>vst(n2, 0) ; //declaring an visited array of size n2 with all elements as 0
 
+        for(int i=0; i<n1;i++){
+            for(int j=0; j<n2; j++){
+                if(arr1[i] == arr2[j] && vst[j] == 0){ //checking if the elements are equal and if the element of the second array is not visited
+                    cout<<arr1[i]<<" "; //printing the intersection of the two arrays
+                    vst[j] = 1; //marking the element of the second array as visited
+                    break; //breaking the inner loop to avoid duplicate elements in the intersection
+                }
+                if(arr1[i] < arr2[j]) break; //if the element of the second array is greater than the element of the first array, we can break the inner loop as the arrays are sorted
+            }
+        }
+        // time complexity = O(n1 * n2)
+        // space complexity = O(n2)
 
+        // optimal approach (using two pointers)
+        int p1 = 0, p2 = 0;
+        vector<int> intersectionv;
+        while(p1 < n1 && p2 < n2){
+            if(arr1[p1] == arr2[p2]){
+                intersectionv.push_back(arr1[p1]);
+                p1++;
+                p2++;
+            }
+            else if(arr1[p1] < arr2[p2]){
+                p1++;
+            }
+            else {
+                p2++;
+            }
+        }
+
+        //time complexity = O(n1+n2) when all elements are distinct
+        //space complexity = O(n1 or n2) which is the size of the smaller array in the worst case when all elements of the smaller array are present in the larger array
+    
+    
     return 0;
 
 }
