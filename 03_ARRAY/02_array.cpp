@@ -123,18 +123,18 @@ int main(){
         // Q3. Move all the zeroes to the end of the array
         
         // brute force approach (using temporary array )
-        vector<int> temp;
+        vector<int> temp1;
         for (int i=0; i<n; i++){
             if(arr[i] != 0){
-                temp.push_back(arr[i]);
+                temp1.push_back(arr[i]);
             }
         }
         // filling the temporary array back to the original array
-        for (int i=0; i<temp.size(); i++){
-            arr[i] = temp[i];
+        for (int i=0; i<temp1.size(); i++){
+            arr[i] = temp1[i];
         }
         // filling the zeroes at the end of the original array
-        for (int i=temp.size(); i<n; i++){
+        for (int i=temp1.size(); i<n; i++){
             arr[i] = 0;
         }
 
@@ -169,15 +169,88 @@ int main(){
         // space complexity = O(1)
 
 
-        // Q4. Find union of sorted arrays
+        // Q4(a). Find union of sorted arrays
 
-        int arr1[5] = {1, 1, 3, 5, 6};
-        int arr2[5] = {2, 2, 3, 4, 5};
+        int arr1[] = {1, 1, 3, 5, 6};
+        int arr2[] = {2, 2, 3, 4, 5};
+        int n1 = sizeof(arr1)/sizeof(arr1[0]);
+        int n2 = sizeof(arr2)/sizeof(arr2[0]);
 
-        // Brute force 
+        // Brute force by using set
         
+        set<int> s;
+        // inserting elements of both arrays into the set
+        for (int i=0; i<n1; i++){
+            s.insert(arr1[i]);
+        }
+        for (int i=0; i<n2; i++){
+            s.insert(arr2[i]);
+        }
+        // printing the union of the two arrays
+        //By using a array
+        int union1[s.size()];
+         int index = 0;
+        for (auto it : s){
+            union1 [index++] = it;
+        }
+        // Or by using a vector
+        vector<int> unionv;
+        for (auto it : s){
+            unionv.push_back(it);
+        }
 
+        //time complexity = O(n1 log n) + O(n2 log n) + O(n1 + n2) = O((n1 + n2) log n)
+        // space complexity = O(n1 + n2)+ O(n1 + n2) = O(n1 + n2)
+   
+        //optimal approach (using two pointers)
+
+        int i = 0, j = 0;
+        vector<int> unionv2;
+        //using two pointer and checking accordingly
+        while(i<n1 && j<n2){
+            if(arr1[i] <= arr2[j]){
+                if(unionv2.empty() || unionv2.back() != arr1[i]){
+                    unionv2.push_back(arr1[i]);
+                }
+                i++;
+            }
+            else {
+                if(unionv2.empty() || unionv2.back() != arr2[j]){ //.empty tell if the vector is empty or not and .back() return the last element of the vector
+                    unionv2.push_back(arr2[j]);
+                }
+                j++;
+            }
+            
+        }
+        // checking for the remaining elements of the first array if any
+        while(i<n1){
+            if(unionv2.empty() || unionv2.back() != arr1[i]){
+                unionv2.push_back(arr1[i]);
+            }
+            i++;
+        }
+        // checking for the remaining elements of the second array if any
+        while(j<n2){
+            if(unionv2.empty() || unionv2.back() != arr2[j]){
+                unionv2.push_back(arr2[j]);
+            }
+            j++;
+        }
+        //printing the union of the two arrays
+        for (int i=0; i<unionv2.size(); i++){
+            cout<<unionv2[i]<<" ";
+        }
+        //or by using a range based for loop
+        for (auto it : unionv2){
+            cout<<it<<" ";
+        }
+
+        // time complexity = O(n1 + n2)
+        // space complexity = O(n1 + n2)
         
+        // Q4(b). Find intersection of sorted arrays
+
+
     return 0;
 
 }
