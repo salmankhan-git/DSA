@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <vector>
 using namespace std;
 
 
@@ -84,6 +85,34 @@ int main(){
     //this approach does not cause integer overflow as we are using XOR operator which is a bitwise operator and it does not depend on the size of the numbers.
     // so it is a better approach than the mathematical formula approach.
 
+    
+    // Q2. Find the maximum consecutive ones in the array
+
+    int arr1[]={1,1,0,1,1,1,0,1,1};
+    int n = arr1.size();
+    int count = 0;
+    int max_count=0;
+    
+    for(int i = 0; i<n; i++) {
+        if(arr1[i]==1){
+            count++;
+            // to handle the case when the array ends with 1s we 
+            // put the contition to update the max_count in each iteration when we encounter a 1
+            max_count = max(max_count, count);
+
+        }
+        else{
+            count=0;
+        }
+    }
+    cout << "Maximum consecutive ones are: " << max_count << endl;
+
+
+    // Q3. Find the number that apperars once and the others appear twice in the array
+
+    
+    
+    
     
     return 0;
 }
