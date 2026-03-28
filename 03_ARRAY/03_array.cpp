@@ -89,7 +89,7 @@ int main(){
     // Q2. Find the maximum consecutive ones in the array
 
     int arr1[]={1,1,0,1,1,1,0,1,1};
-    int n = arr1.size();
+    int n = sizeof(arr1)/sizeof(arr1[0]);
     int count = 0;
     int max_count=0;
     
@@ -110,9 +110,40 @@ int main(){
 
     // Q3. Find the number that apperars once and the others appear twice in the array
 
-    
-    
-    
-    
+    int arr2[]={2,3,5,4,5,3,4};
+    int n2 = sizeof(arr2)/sizeof(arr2[0]);
+
+    //brute force approach(using linear search)
+    for (int i = 0; i < n2; i++)
+    {
+        int counte =0;
+        for (int j = 0; j < n2; j++){
+            if(arr2[i]==arr2[j]){
+                counte++;
+            }
+        }
+        if(counte==1){
+            cout << "The number that appears once is: " << arr2[i] << endl;
+            break;
+        }
+
+        //time complexity: O(n^2)
+        //space complexity: O(1)
+
+        //better approach(using hashing)
+        
+        //for knowing the size of the hasher we have to find the maximum element in the array as the size of the hasher should be greater than the maximum element in the array
+        int max_num = *max_element(arr2, arr2+n2);
+        vector<int>hasher(max_num+1, 0);
+        for(int i=0; i<n2; i++){
+            hasher[arr2[i]]++;
+        }
+        for(int i=0; i<n2; i++){  // we can also loop the hash array as the size of the hasher is greater than the size of the array but we will choose array as it is smaller than the hasher array soo it will reduce time complexity a bit.
+            if(hasher[arr2[i]]==1){
+                cout << "The number that appears once is :"<<arr2[i] << endl;
+                break;
+            }
+        }
+
     return 0;
 }
