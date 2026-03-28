@@ -130,11 +130,15 @@ int main(){
         //time complexity: O(n^2)
         //space complexity: O(1)
 
-        //better approach(using hashing)
+        //Better approach
+        
+        // 1. using hashing (but it cant be used for negative numbers , number greater than 10^6 and it also takes extra space)
         
         //for knowing the size of the hasher we have to find the maximum element in the array as the size of the hasher should be greater than the maximum element in the array
-        int max_num = *max_element(arr2, arr2+n2);
-        vector<int>hasher(max_num+1, 0);
+        int max_num = *max_element(arr2, arr2+n2); //time complexity: O(n)
+    
+        int hasher[max_num+1] = {0};
+        //or  vector<int>hasher(max_num+1, 0);
         for(int i=0; i<n2; i++){
             hasher[arr2[i]]++;
         }
@@ -145,5 +149,35 @@ int main(){
             }
         }
 
+        // time complexity: O(n)+O(n)+O(n) = O(3n) 
+        // space complexity: O(max_num)
+
+
+        //2. Using unordered / ordered map
+        map<long long, int> mp;
+        for(int i=0; i<n2;i++){
+            mp[arr2[i]]++;
+        }// time complexity: O(nlogm) n is the size of array and m is the size of the map as we are having m unique numbers in the array 
+        for(auto it: mp){
+            if(it.second==1){
+                cout << "The number that appears once is: " << it.first << endl;
+                break;
+            }
+        }//time complexity: O(m) as we are iterating the map which has m = (n/2 +1) unique numbers in the array
+        
+        
+        //time complexity: O(nlogm) + O(m)
+        //space complexity: O(m) = O(n/2 + 1) as we are having n/2 pairs of duplicate numbers and 1 number that appears once so total n/2 + 1 unique numbers in the array
+    
+        
+        // Optimal approach (using XOR operator)
+        int xor_sum2 = 0;
+        for(int i=0; i<n2;i++){
+            xor_sum2 ^= arr2[i];
+        }
+        cout << "The number that appears once is: " << xor_sum2 << endl;
+        //time complexity: O(n)
+        //space complexity: O(1)
+    
     return 0;
 }
