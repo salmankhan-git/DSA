@@ -38,13 +38,22 @@ int main(){
     // then we can find the subarray with sum k by checking if (x - k) exists in the hash map
     // if it exists then we can find the length of the subarray by taking the difference of the current index and the index of (x-k) in the hash map
     
-    map<int, int> mp; // to store prefix sum and its index
-    int prefix_sum = 0;
+    map<long long, int> mp; // to store prefix sum and its index
+    long long prefix_sum = 0;
     int max_len2 = 0;
     for(int i=0; i<n; i++){
         prefix_sum += arr[i];
-        if(prefix_sum ==k){
+        if(prefix_sum == k){
             max_len2 = max(max_len2, i+1);
+        }
+        // check if (prefix_sum - k) = remaining_sum exists in the hash map 
+        long long  remaining_sum = prefix_sum - k;
+        if(mp.find(remaining_sum) != mp.end()){
+            max_len2 = max(max_len2, i - mp[remaining_sum]);
+        }
+        // if the prefix sum is same then we will not update the index in the hash map because we want to find the longest subarray
+        if(mp.find(prefix_sum) == mp.end()){
+            mp[prefix_sum] = i;
         }
         
     }
