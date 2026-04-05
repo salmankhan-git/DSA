@@ -63,6 +63,33 @@ int main(){
 
     // optimal approach: Dutch National Flag Algorithm
 
+    // in this algo the main logic is we are having 
+    // all zeroes (0, low-1)  left most part of the array
+    // all ones (low, mid-1)
+    // all unsorted (mid, high) **this is the part of the array which we are going to sort
+    // all twos (high+1, n-1) right most part of the array
 
+    // if arr[x]=0 then we will swap arr[x] with arr[low] and increment low and mid
+    // if arr[x]=1 then we will just increment mid
+    // if arr[x]=2 then we will swap arr[x] with arr[high] and decrement high
+
+        int low = 0, mid = 0, high = n - 1;// we are taking low as 0 because it is the staring index and mid and high as 0 and n-1 because we are going to sort the whole array
+        while(mid<=high){
+            if(arr[mid]==0){
+                swap(arr[low],arr[mid]);
+                low++;
+                mid++;
+            }
+            else if(arr[mid]==1){
+                mid++;
+            }
+            else{
+                swap(arr[mid],arr[high]);
+                high--;
+            }
+        }
+
+        //time complexity : O(n)
+        //space complexity : O(1)
 return 0;
 }
