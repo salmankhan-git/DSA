@@ -36,5 +36,39 @@ int main (){
    }
    // time complexity: O(nlogn + n)
    // space complexity: O(n)
+
+   // Optimal approach (Boyer-Moore Voting Algorithm)
+   // Moore's Voting Algorithm finds the majority element by canceling out different elements using a counter. 
+   // It keeps a candidate and adjusts the count as it scans the array—if a majority element exists, it will remain as the final candidate.
+
+   int count = 0;
+   int candidate;
+   // First pass to find the candidate 
+   for(int i=0; i<n; i++){
+      if(count == 0){
+         candidate = arr[i];
+         count++;
+      } else if(arr[i] == candidate){
+         count++;
+      } else {
+         count--;
+      }
+   }
+   // if we have given the array contains a majority element then the candidate will be the majority element but if there is no majority element then the candidate will be some random element so we need to verify it by counting its frequency in the array.
+   // Second pass to verify the candidate
+   int count1 = 0;
+   for(int i =0; i<n ; i++){
+      if(arr[i] == candidate){
+         count1++;
+      }
+   }
+   if(count1 > n/2){
+      cout << "Majority element is: " << candidate << endl;
+   } else {
+      cout << "No majority element found." << endl;
+   }
+
+   //time complexity O(n+n)
+   //space complexity O(1)
    return 0; 
 }
